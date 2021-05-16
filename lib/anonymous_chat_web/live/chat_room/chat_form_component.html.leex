@@ -3,7 +3,7 @@
       phx_change: "validate",
       phx_submit: "save"
 %>
-  <%= hidden_input f, :username, value: "test_user" %>
+  <%= hidden_input f, :username, value: @username %>
 
   <div class="input-group">
     <%= text_input f, :content, placeholder: "Type a message..." %>

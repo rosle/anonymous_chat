@@ -1,4 +1,11 @@
-<h1>📢</h1>
+<div class="flex justify-between items-center">
+  <h1>📢</h1>
+  <%= link "👋 Leave",
+        to: Routes.session_path(@socket, :delete, @username),
+        method: :delete,
+        class: "btn"
+  %>
+</div>
 
 <div class="chat-room">
   <ol id="chatRoomMessage" class="message-list" phx-update="append">
@@ -19,7 +26,8 @@
   <div class="message-form">
     <%= live_component @socket,
           AnonymousChatWeb.ChatRoom.ChatFormComponent,
-          id: :chat_form
+          id: :chat_form,
+          username: @username
     %>
   <div>
 </div>

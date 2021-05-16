@@ -5,8 +5,10 @@ defmodule AnonymousChatWeb.ChatRoomLive do
   alias AnonymousChat.Messages.Message
   alias Phoenix.PubSub
 
-  def mount(_, _, socket) do
+  def mount(_, %{"username" => username}, socket) do
     if connected?(socket), do: PubSub.subscribe(AnonymousChat.PubSub, "chat_room")
+
+    socket = assign(socket, :username, username)
 
     {:ok, socket, temporary_assigns: [messages: list_recent_messages()]}
   end

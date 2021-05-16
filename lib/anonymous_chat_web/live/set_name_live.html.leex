@@ -1,0 +1,9 @@
+<h1>Welcome 🌟</h1>
+
+<%= f = form_for :user, Routes.session_path(@socket, :create) %>
+  <%= text_input f, :name, required: true, maxlength: 20 %>
+
+  <div class="form__action">
+    <%= submit "Go", class: "btn" %>
+  </div>
+<form>

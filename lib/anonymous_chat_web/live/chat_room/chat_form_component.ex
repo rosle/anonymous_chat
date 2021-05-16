@@ -27,6 +27,7 @@ defmodule AnonymousChatWeb.ChatRoom.ChatFormComponent do
         {:noreply, assign(socket, :changeset, changeset)}
 
       {:error, %Ecto.Changeset{}} ->
+        # TODO: Check flash not shown
         {:noreply, put_flash(socket, :error, "Something went wrong, Please try again.")}
     end
   end

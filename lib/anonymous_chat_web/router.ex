@@ -1,13 +1,16 @@
 defmodule AnonymousChatWeb.Router do
   use AnonymousChatWeb, :router
 
+  alias AnonymousChatWeb.Plugs
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_flash
+    plug :fetch_live_flash
     plug :put_root_layout, {AnonymousChatWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Plugs.SetName
   end
 
   pipeline :api do
@@ -16,6 +19,17 @@ defmodule AnonymousChatWeb.Router do
 
   scope "/", AnonymousChatWeb do
     pipe_through :browser
+
+    live "/welcome", SetNameLive
+
+    resources "/sessions", SessionController, only: [:create, :delete]
+  end
+
+  scope "/", AnonymousChatWeb do
+    pipe_through [
+      :browser,
+      Plugs.EnsureNameSet
+    ]
 
     live "/", ChatRoomLive
   end
