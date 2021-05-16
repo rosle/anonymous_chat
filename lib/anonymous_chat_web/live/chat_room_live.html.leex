@@ -8,7 +8,7 @@
 </div>
 
 <div class="chat-room">
-  <ol id="chatRoomMessage" class="message-list" phx-update="append">
+  <ol id="chatRoomMessage" class="message-list" phx-hook="ChatRoomMessage" phx-update="append">
     <%= for message <- @messages do %>
       <li id="message_<%= message.id %>" class="message-list__item">
         <div class="message-list__item-avatar"

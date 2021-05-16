@@ -16,8 +16,23 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"
 
+const SCROLL_THRESHOLD = 200
+
+let Hooks = {}
+
+Hooks.ChatRoomMessage = {
+  mounted() {
+    this.el.scrollTop = this.el.scrollHeight;
+  },
+  updated() {
+    if (this.el.scrollTop + this.el.clientHeight + SCROLL_THRESHOLD >= this.el.scrollHeight) {
+      this.el.scrollTop = this.el.scrollHeight;
+    }
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, {hooks: Hooks, params: {_csrf_token: csrfToken}})
 
 liveSocket.connect()
 

@@ -13,8 +13,6 @@ defmodule AnonymousChatWeb.Plugs.EnsureNameSet do
   end
 
   def call(conn, _opts) do
-    IO.inspect get_session(conn, :username)
-
     conn
     |> redirect(to: Routes.live_path(conn, SetNameLive))
     |> halt()

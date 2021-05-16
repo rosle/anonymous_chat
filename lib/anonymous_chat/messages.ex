@@ -5,7 +5,7 @@ defmodule AnonymousChat.Messages do
   alias AnonymousChat.Repo
   alias Phoenix.PubSub
 
-  @recent_messages_limit 50
+  @recent_messages_limit 10
 
   def list_recent_messages do
     Message
