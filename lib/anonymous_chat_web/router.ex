@@ -17,7 +17,7 @@ defmodule AnonymousChatWeb.Router do
   scope "/", AnonymousChatWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", ChatRoomLive
   end
 
   # Other scopes may use custom stacks.

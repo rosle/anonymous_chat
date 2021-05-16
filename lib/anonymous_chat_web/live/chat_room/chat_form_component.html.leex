@@ -1,0 +1,10 @@
+<%= f = form_for @changeset, "#",
+      phx_target: @myself,
+      phx_change: "validate",
+      phx_submit: "save"
+%>
+  <%= hidden_input f, :username, value: "test_user" %>
+  <%= textarea f, :content, rows: 5 %>
+
+  <%= submit "Send", phx_disable_with: "Sending...", disabled: !@changeset.valid? %>
+</form>
