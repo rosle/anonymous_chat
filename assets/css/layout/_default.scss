@@ -1,0 +1,22 @@
+body.layout-default {
+  @apply flex
+    flex-1
+    flex-col
+    items-center
+    justify-center
+    w-screen
+    h-screen
+    bg-blue-300;
+
+  main {
+    @apply w-screen
+      max-w-4xl
+      mx-auto
+      p-6
+      bg-white;
+  }
+
+  main > h1 {
+    @apply mb-4;
+  }
+}

@@ -4,7 +4,12 @@
       phx_submit: "save"
 %>
   <%= hidden_input f, :username, value: "test_user" %>
-  <%= textarea f, :content, rows: 5 %>
 
-  <%= submit "Send", phx_disable_with: "Sending...", disabled: !@changeset.valid? %>
+  <div class="input-group">
+    <%= textarea f, :content, rows: 5 %>
+  </div>
+
+  <div class="form__action">
+    <%= submit "Send", class: "btn", phx_disable_with: "Sending...", disabled: !@changeset.valid? %>
+  <div>
 </form>

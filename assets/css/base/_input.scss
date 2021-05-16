@@ -1,0 +1,13 @@
+input,
+textarea {
+  @apply w-full
+    border
+    border-gray-300
+    p-2
+    my-2
+    rounded-md
+    ring-blue-200
+
+    focus:outline-none
+    focus:ring-2;
+}

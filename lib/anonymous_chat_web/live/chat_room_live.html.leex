@@ -1,16 +1,24 @@
 <h1>📢</h1>
 
-<%= live_component @socket,
-      AnonymousChatWeb.ChatRoom.ChatFormComponent,
-      id: :chat_form
-%>
+<div class="chat-room">
+  <ol id="chatRoomMessage" class="message-list" phx-update="append">
+    <%= for message <- @messages do %>
+      <li id="message_<%= message.id %>" class="message-list__item">
+        <div class="message-list__item-user">
+          <%= message.username %>
+        </div>
+        <div>
+          <div class="message-list__item-content"><%= message.content %><div>
+          <div class="message-list__item-time"><%= message.inserted_at %><div>
+        </div>
+      </li>
+    <% end %>
+  </ol>
 
-<ol id="chatRoomMessage" class="message__list" phx-update="append">
-  <%= for message <- @messages do %>
-    <li id="message_<%= message.id %>">
-      <div><%= message.username %><div>
-      <div><%= message.content %><div>
-      <div><%= message.inserted_at %><div>
-    </li>
-  <% end %>
-</ol>
+  <div class="message-form">
+    <%= live_component @socket,
+          AnonymousChatWeb.ChatRoom.ChatFormComponent,
+          id: :chat_form
+    %>
+  <div>
+</div>

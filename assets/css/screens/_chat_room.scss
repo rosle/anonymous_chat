@@ -1,0 +1,24 @@
+.chat-room {
+  .message-list {
+    @apply overflow-y-scroll pb-6;
+
+    height: 50vh;
+  }
+
+  .message-list__item {
+    @apply flex;
+  }
+
+  .message-list__item:not(:first-child) {
+    @apply mt-4;
+  }
+
+  .message-list__item-user {
+    @apply mr-4;
+  }
+
+  .message-list__item-time {
+    @apply text-xs
+      text-gray-500;
+  }
+}
