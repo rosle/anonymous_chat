@@ -4,3 +4,13 @@
       AnonymousChatWeb.ChatRoom.ChatFormComponent,
       id: :chat_form
 %>
+
+<ol id="chatRoomMessage" class="message__list" phx-update="append">
+  <%= for message <- @messages do %>
+    <li id="message_<%= message.id %>">
+      <div><%= message.username %><div>
+      <div><%= message.content %><div>
+      <div><%= message.inserted_at %><div>
+    </li>
+  <% end %>
+</ol>
