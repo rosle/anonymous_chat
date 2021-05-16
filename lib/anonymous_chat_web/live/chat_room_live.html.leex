@@ -4,10 +4,11 @@
   <ol id="chatRoomMessage" class="message-list" phx-update="append">
     <%= for message <- @messages do %>
       <li id="message_<%= message.id %>" class="message-list__item">
-        <div class="message-list__item-user">
-          <%= message.username %>
+        <div class="message-list__item-avatar"
+             style="background-image: url(https://avatars.dicebear.com/api/human/<%= message.username %>.svg)">
         </div>
         <div>
+          <div class="message-list__item-username"><%= message.username %>:</div>
           <div class="message-list__item-content"><%= message.content %><div>
           <div class="message-list__item-time"><%= message.inserted_at %><div>
         </div>

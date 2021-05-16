@@ -13,8 +13,17 @@
     @apply mt-4;
   }
 
-  .message-list__item-user {
-    @apply mr-4;
+  .message-list__item-avatar {
+    @apply w-8
+      h-8
+      mr-4
+      rounded-full
+      bg-cover
+  }
+
+  .message-list__item-username {
+    @apply text-sm
+      text-purple-900;
   }
 
   .message-list__item-time {

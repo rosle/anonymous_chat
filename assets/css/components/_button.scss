@@ -9,10 +9,10 @@
       ring-offset-2
 
       focus:outline-none
-      focus:ring-2
+      focus:ring-2;
   }
 
   .btn:disabled {
-    @apply opacity-70
+    @apply opacity-70;
   }
 }
