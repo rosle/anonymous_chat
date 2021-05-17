@@ -1,6 +1,6 @@
 <h1>Welcome 🌟</h1>
 
-<%= f = form_for :user, Routes.session_path(@socket, :create) %>
+<%= f = form_for :user, Routes.session_path(@socket, :create), autocomplete: "off" %>
   <%= text_input f, :name, required: true, maxlength: 20 %>
 
   <div class="form__action">
