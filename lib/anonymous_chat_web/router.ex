@@ -22,6 +22,9 @@ defmodule AnonymousChatWeb.Router do
 
     live "/welcome", SetNameLive
 
+    live "/counter", CounterLive
+    live "/clock", ClockLive
+
     resources "/sessions", SessionController, only: [:create, :delete]
   end
 
