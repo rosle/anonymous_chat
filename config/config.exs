@@ -18,6 +18,10 @@ config :anonymous_chat, AnonymousChatWeb.Endpoint,
   pubsub_server: AnonymousChat.PubSub,
   live_view: [signing_salt: "iD68wR9s"]
 
+config :anonymous_chat, AnonymousChat.PromEx,
+  disabled: true,
+  grafana: :disabled
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

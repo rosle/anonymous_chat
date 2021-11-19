@@ -7,6 +7,7 @@ defmodule AnonymousChat.Application do
 
   def start(_type, _args) do
     children = [
+      AnonymousChat.PromEx,
       # Start the Ecto repository
       AnonymousChat.Repo,
       # Start the Telemetry supervisor

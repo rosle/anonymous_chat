@@ -15,6 +15,17 @@ config :anonymous_chat, AnonymousChatWeb.Endpoint,
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :anonymous_chat, AnonymousChat.PromEx ,
+  disabled: false,
+  manual_metrics_start_delay: :no_delay,
+  drop_metrics_groups: [],
+  grafana: [
+    upload_dashboards_on_start: true,
+    folder_name: "AnonymousChatWeb Dashboards",
+    annotate_app_lifecycle: true
+  ],
+  metrics_server: :disabled
+
 # Do not print debug messages in production
 config :logger, level: :info
 
@@ -54,4 +65,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
